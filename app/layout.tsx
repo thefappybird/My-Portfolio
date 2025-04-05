@@ -22,7 +22,7 @@ export const metadata = {
     siteName: "Alexander's Portfolio",
     images: [
       {
-        url: "/public/globe.svg",
+        url: "/public/preview-icon.png",
         width: 1200,
         height: 630,
         alt: "Preview Image",
