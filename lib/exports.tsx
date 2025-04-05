@@ -7,12 +7,12 @@ export const getBadgeClass = (
 export const southMateImages: string[] = [
   "/southMate/mobile/login.png",
   "/southMate/mobile/register-choice.png",
-  "/southMate/mobile/register-form.png",
+  "/southMate/mobile/transact.png",
   "/southMate/mobile/profile.png",
+  "/southMate/mobile/qr.png",
   "/southMate/website/login.png",
   "/southmate/website/register-form.png",
   "/southMate/website/profile.png",
-  "/southmate/website/register-bank.png",
   "/southMate/website/transaction.png",
 ];
 
