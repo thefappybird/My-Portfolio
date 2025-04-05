@@ -3,16 +3,16 @@
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "./theme-provider";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Mode, Theme } from "@/lib/models/models";
+import { Theme } from "@/lib/models/models";
 
 export function ThemeSwitcher() {
-  const { theme, mode, setTheme, setMode } = useTheme();
+  const { theme, setTheme } = useTheme();
 
   return (
     <div className="flex flex-col gap-2 items-center p-2">
       <Tabs
-        defaultValue={mode}
-        onValueChange={(value) => setMode(value as Mode)}
+        defaultValue={theme}
+        onValueChange={(value) => setTheme(value as Theme)}
       >
         <TabsList className="bg-muted p-1 rounded-full shadow-md">
           <TabsTrigger
@@ -26,31 +26,6 @@ export function ThemeSwitcher() {
             className="data-[state=active]:bg-gray-700 data-[state=active]:text-white transition-colors rounded-full p-2"
           >
             <Moon className="h-5 w-5" />
-          </TabsTrigger>
-        </TabsList>
-      </Tabs>
-      <Tabs
-        defaultValue={theme}
-        onValueChange={(value) => setTheme(value as any)}
-      >
-        <TabsList>
-          <TabsTrigger
-            value="light"
-            className="data-[state=active]:bg-white data-[state=active]:text-black"
-          >
-            Light
-          </TabsTrigger>
-          <TabsTrigger
-            value="red"
-            className="data-[state=active]:bg-red-500 data-[state=active]:text-white"
-          >
-            Red
-          </TabsTrigger>
-          <TabsTrigger
-            value="green"
-            className="data-[state=active]:bg-green-500 data-[state=active]:text-white"
-          >
-            Green
           </TabsTrigger>
         </TabsList>
       </Tabs>

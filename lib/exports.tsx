@@ -1,9 +1,3 @@
-export const getBadgeClass = (
-  mode: "dark" | "light",
-  light: string,
-  dark: string
-) => (mode === "dark" ? dark : light);
-
 export const southMateImages: string[] = [
   "/southMate/mobile/login.png",
   "/southMate/mobile/register-choice.png",

@@ -13,8 +13,8 @@ const TechBadge = ({
   darkClass: string;
   children: React.ReactNode;
 }) => {
-  const { mode } = useTheme();
-  const badgeClass = mode === "dark" ? darkClass : lightClass;
+  const { theme } = useTheme();
+  const badgeClass = theme === "dark" ? darkClass : lightClass;
   return <Badge className={badgeClass}>{children}</Badge>;
 };
 
