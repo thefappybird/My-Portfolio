@@ -26,7 +26,7 @@ import ProjectCard from "@/components/gallery/ProjectCard";
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center p-6 transition-colors duration-200">
+    <main className="min-h-screen flex flex-col items-center justify-center p-6">
       <div className="max-w-7xl w-full space-y-8">
         <Header />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
