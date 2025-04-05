@@ -10,9 +10,9 @@ export const southMateImages: string[] = [
   "/southMate/mobile/register-form.png",
   "/southMate/mobile/profile.png",
   "/southMate/website/login.png",
-  "/southmate/website/register.png",
+  "/southmate/website/register-form.png",
   "/southMate/website/profile.png",
-  "/southmate/website/regBank.png",
+  "/southmate/website/register-bank.png",
   "/southMate/website/transaction.png",
 ];
 
