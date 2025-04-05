@@ -13,9 +13,23 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "Alexander's Portfolio",
-  description: "Portfolio created by Alexander",
+  description: "Collection of Projects made by Alexander",
+  openGraph: {
+    title: "Alexander's Portfolio",
+    description: "Collection of Projects made by Alexander",
+    siteName: "Alexander's Portfolio",
+    images: [
+      {
+        url: "/public/globe.svg",
+        width: 1200,
+        height: 630,
+        alt: "Preview Image",
+      },
+    ],
+    type: "website",
+  },
 };
 
 export default function RootLayout({
