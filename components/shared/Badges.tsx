@@ -18,21 +18,25 @@ const TechBadge = ({
 
 export function Angular() {
   return (
-    <TechBadge
-      lightClass="bg-orange-500 text-white"
-      darkClass="dark:bg-orange-600"
-    >
+    <TechBadge lightClass="bg-red-500 text-white" darkClass="dark:bg-red-500">
       Angular
     </TechBadge>
   );
 }
-export function HtmlCss() {
+export function Html() {
   return (
     <TechBadge
       lightClass="bg-orange-500 text-white"
       darkClass="dark:bg-orange-600"
     >
-      HTML/CSS
+      HTML
+    </TechBadge>
+  );
+}
+export function Css() {
+  return (
+    <TechBadge lightClass="bg-blue-600 text-white" darkClass="dark:bg-blue-500">
+      CSS
     </TechBadge>
   );
 }
@@ -46,7 +50,13 @@ export function Javascript() {
     </TechBadge>
   );
 }
-
+export function TypeScript() {
+  return (
+    <TechBadge lightClass="bg-blue-700 text-white" darkClass="dark:bg-blue-700">
+      TypeScript
+    </TechBadge>
+  );
+}
 export function MongoDB() {
   return (
     <TechBadge
@@ -95,6 +105,17 @@ export function ReactJS() {
   return (
     <TechBadge lightClass="bg-blue-600 text-white" darkClass="dark:bg-blue-700">
       ReactJS
+    </TechBadge>
+  );
+}
+
+export function VueJS() {
+  return (
+    <TechBadge
+      lightClass="bg-green-700 text-white"
+      darkClass="dark:bg-green-700"
+    >
+      VueJS
     </TechBadge>
   );
 }

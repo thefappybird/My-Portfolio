@@ -17,7 +17,7 @@ export function ThemeSwitcher() {
         <TabsList className="bg-muted p-1 rounded-full shadow-md">
           <TabsTrigger
             value="light"
-            className="data-[state=active]:bg-white data-[state=active]:text-black transition-colors rounded-full p-2"
+            className="data-[state=active]:bg-white  data-[state=active]:text-black transition-colors rounded-full p-2"
           >
             <Sun className="h-5 w-5" />
           </TabsTrigger>

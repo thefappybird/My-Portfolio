@@ -4,16 +4,7 @@ import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuList,
-  navigationMenuTriggerStyle,
-  NavigationMenuViewport,
 } from "@/components/ui/navigation-menu";
-
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { NavigationMenuLink } from "@radix-ui/react-navigation-menu";
 
 function Header() {
   return (
@@ -21,18 +12,7 @@ function Header() {
       <NavigationMenu>
         <NavigationMenuList>
           <NavigationMenuItem>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <button title="Open Theme Switcher">
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                    Change Theme
-                  </NavigationMenuLink>
-                </button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <ThemeSwitcher />
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <ThemeSwitcher />
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>

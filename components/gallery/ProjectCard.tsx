@@ -14,6 +14,7 @@ interface ProjectCardProps {
   description: string;
   images: string[];
   repos: { linkTitle: string; link: string }[]; // Add repos prop
+  link: string | null;
   children: React.ReactNode;
 }
 
@@ -22,6 +23,7 @@ function ProjectCard({
   description,
   images,
   repos, // Destructure repos
+  link,
   children,
 }: ProjectCardProps) {
   return (
@@ -31,16 +33,24 @@ function ProjectCard({
           <CardTitle>{title}</CardTitle>
           <CardDescription>
             <p>{description}</p>
-            <div className="flex gap-2 flex-wrap">
-              <p>Repos for:</p>
-              {repos.map((repo, index) => (
-                <LinkTo
-                  key={index}
-                  linkTitle={repo.linkTitle}
-                  link={repo.link}
-                />
-              ))}
-            </div>
+            {link && (
+              <div className="flex gap-2 flex-wrap">
+                <p>Deployed Website:</p>
+                <LinkTo linkTitle={title} link={link} />
+              </div>
+            )}
+            {repos.length > 0 && (
+              <div className="flex gap-2 flex-wrap">
+                <p>Repos:</p>
+                {repos.map((repo, index) => (
+                  <LinkTo
+                    key={index}
+                    linkTitle={repo.linkTitle}
+                    link={repo.link}
+                  />
+                ))}
+              </div>
+            )}
           </CardDescription>
           {children}
         </CardHeader>

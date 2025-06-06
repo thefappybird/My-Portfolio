@@ -19,3 +19,13 @@ export const nomadImages: string[] = [
   "/nomad/reports.png",
   "/nomad/settings.png",
 ];
+
+export const trackrImages: string[] = [
+  "/trackr/landing.png",
+  "/trackr/demo-loading.png",
+  "/trackr/demo-data.png",
+  "/trackr/landing-mobile.png",
+  "/trackr/about-mobile.png",
+  "/trackr/demo-mobile.png",
+  "/trackr/demo-mobile-2.png",
+];

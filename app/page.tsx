@@ -10,7 +10,9 @@ import Header from "@/components/Header";
 import PrimaryInfo from "@/components/info/PrimaryInfo/PrimaryInfo";
 import SecondaryInfo from "@/components/info/SecondaryInfo/SecondaryInfo";
 import {
-  HtmlCss,
+  Angular,
+  Css,
+  Html,
   Javascript,
   MongoDB,
   MySQL,
@@ -20,8 +22,9 @@ import {
   ReactJS,
   ReactNative,
   Tailwind,
+  TypeScript,
 } from "@/components/shared/Badges";
-import { nomadImages, southMateImages } from "@/lib/exports";
+import { nomadImages, southMateImages, trackrImages } from "@/lib/exports";
 import ProjectCard from "@/components/gallery/ProjectCard";
 
 export default function Home() {
@@ -54,9 +57,10 @@ export default function Home() {
                   link: "https://github.com/thefappybird/SouthMate-App",
                 },
               ]}
+              link={null}
             >
               <div className="flex gap-2 flex-wrap">
-                <HtmlCss />
+                <Html />
                 <Javascript />
                 <ReactNative />
                 <NodeJS />
@@ -68,15 +72,34 @@ export default function Home() {
               description="I worked as the sole developer for this Web Project for a client in my previous job."
               images={nomadImages}
               repos={[]}
+              link={null}
             >
               <div className="flex gap-2 flex-wrap">
                 <ReactJS />
                 <NextJS />
                 <Tailwind />
-                <Javascript />
+                <TypeScript />
                 <NodeJS />
                 <MySQL />
                 <Prisma />
+              </div>
+            </ProjectCard>
+            <ProjectCard
+              title="Trackr | Demo Expense Tracker App with Graphs"
+              description="A small demo project to show my Angular 19 prowess using standalone components and signal-based reactivity. It is using generated data and api calls to a currency converter API and using ng2-charts to visualize expenses."
+              images={trackrImages}
+              repos={[
+                {
+                  linkTitle: "Website",
+                  link: "https://github.com/thefappybird/02-expense-tracker",
+                },
+              ]}
+              link="https://02-expense-tracker-revamp.vercel.app"
+            >
+              <div className="flex gap-2 flex-wrap">
+                <Angular />
+                <Css />
+                <TypeScript />
               </div>
             </ProjectCard>
           </Card>

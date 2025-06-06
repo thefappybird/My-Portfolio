@@ -20,8 +20,8 @@ function PrimaryInfo() {
       </div>
       <CardContent>
         <p>
-          I’m a web developer with experience in Next.js and have explored MERN
-          and MEAN stacks through Udemy courses this year. I enjoy building
+          I’m a web developer with experience in Next.js and have explored MERN,
+          MEAN and MEVN stacks through Udemy courses this year. I enjoy building
           scalable applications and continuously learning new technologies.
         </p>
       </CardContent>
