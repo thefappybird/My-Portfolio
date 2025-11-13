@@ -29,3 +29,20 @@ export const trackrImages: string[] = [
   "/trackr/demo-mobile.png",
   "/trackr/demo-mobile-2.png",
 ];
+
+export const platoImages: string[] = [
+  "/plato/plato-home.png",
+  "/plato/plato-about.png",
+  "/plato/plato-explore.png",
+  "/plato/plato-login.png",
+  "/plato/plato-register.png",
+  "/plato/plato-auth.png",
+  "/plato/plato-auth-recipe.png",
+  "/plato/plato-auth-favorites.png",
+];
+
+export const financeImages: string[] = [
+  "/finance-tracker/dashboard.png",
+  "/finance-tracker/graphs.png",
+  "/finance-tracker/table.png",
+];

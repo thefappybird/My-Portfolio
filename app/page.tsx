@@ -5,26 +5,34 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-import ReduxTemplate from "@/components/ReduxTemplate";
 import Header from "@/components/Header";
 import PrimaryInfo from "@/components/info/PrimaryInfo/PrimaryInfo";
 import SecondaryInfo from "@/components/info/SecondaryInfo/SecondaryInfo";
 import {
   Angular,
   Css,
+  DotNet,
   Html,
   Javascript,
   MongoDB,
-  MySQL,
+  MsSql,
   NextJS,
   NodeJS,
   Prisma,
   ReactJS,
   ReactNative,
+  Scss,
   Tailwind,
   TypeScript,
+  VueJS,
 } from "@/components/shared/Badges";
-import { nomadImages, southMateImages, trackrImages } from "@/lib/exports";
+import {
+  financeImages,
+  nomadImages,
+  platoImages,
+  southMateImages,
+  trackrImages,
+} from "@/lib/exports";
 import ProjectCard from "@/components/gallery/ProjectCard";
 
 export default function Home() {
@@ -79,9 +87,21 @@ export default function Home() {
                 <NextJS />
                 <Tailwind />
                 <TypeScript />
-                <NodeJS />
-                <MySQL />
                 <Prisma />
+              </div>
+            </ProjectCard>
+            <ProjectCard
+              title="Professional Project | Quality Assurance Tool"
+              description="I was a part of an agile team that developed this web application for internal use in my previous job."
+              images={[]}
+              repos={[]}
+              link={null}
+            >
+              <div className="flex gap-2 flex-wrap">
+                <Angular />
+                <DotNet />
+                <Tailwind />
+                <TypeScript />
               </div>
             </ProjectCard>
             <ProjectCard
@@ -100,6 +120,43 @@ export default function Home() {
                 <Angular />
                 <Css />
                 <TypeScript />
+              </div>
+            </ProjectCard>
+            <ProjectCard
+              title="Plato | Recipe Planner App with Backend API"
+              description="A small full stack project to show my Vue 3 prowess using the Composition API and TypeScript and a backend API built with .NET 9 and MS SQL. It allows users to register and create recipes, explore and favorite recipes from other users."
+              images={platoImages}
+              repos={[
+                {
+                  linkTitle: "Website",
+                  link: "https://github.com/thefappybird/03-recipe-planner",
+                },
+                {
+                  linkTitle: "Backend API",
+                  link: "https://github.com/thefappybird/Plato_DB",
+                },
+              ]}
+              link="https://03-recipe-planner.vercel.app"
+            >
+              <div className="flex gap-2 flex-wrap">
+                <VueJS />
+                <Scss />
+                <TypeScript />
+                <DotNet />
+                <MsSql />
+              </div>
+            </ProjectCard>
+            <ProjectCard
+              title="Money Tracker Project "
+              description="A simple finance tracker web app built with ReactJS and NextJS. It allows users to track their income and expenses with visual graphs and tables."
+              images={financeImages}
+              repos={[]}
+              link="https://finance-tracker-alpha-three.vercel.app"
+            >
+              <div className="flex gap-2 flex-wrap">
+                <ReactJS />
+                <NextJS />
+                <Tailwind />
               </div>
             </ProjectCard>
           </Card>

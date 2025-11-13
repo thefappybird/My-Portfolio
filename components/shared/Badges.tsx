@@ -40,6 +40,13 @@ export function Css() {
     </TechBadge>
   );
 }
+export function Scss() {
+  return (
+    <TechBadge lightClass="bg-red-500 text-white" darkClass="dark:bg-red-600">
+      SCSS
+    </TechBadge>
+  );
+}
 export function Javascript() {
   return (
     <TechBadge
@@ -149,13 +156,23 @@ export function Prisma() {
   );
 }
 
-export function MySQL() {
+export function MsSql() {
   return (
     <TechBadge
-      lightClass="bg-orange-500 text-white"
-      darkClass="dark:bg-orange-600"
+      lightClass="bg-green-600 text-white"
+      darkClass="dark:bg-green-700"
     >
-      MySQL
+      MSSQL
+    </TechBadge>
+  );
+}
+export function DotNet() {
+  return (
+    <TechBadge
+      lightClass="bg-indigo-500 text-white"
+      darkClass="dark:bg-indigo-600"
+    >
+      C# .NET
     </TechBadge>
   );
 }
