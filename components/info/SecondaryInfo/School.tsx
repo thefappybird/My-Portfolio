@@ -11,7 +11,7 @@ function School() {
       </div>
       <div className="flex flex-col gap-0.5">
         <CardTitle>University of San Carlos</CardTitle>
-        <CardDescription>2019 - 2021 | Cebu City, Philippines</CardDescription>
+        <CardDescription>2018 - 2021 | Cebu City, Philippines</CardDescription>
       </div>
     </CollapsibleContent>
   );

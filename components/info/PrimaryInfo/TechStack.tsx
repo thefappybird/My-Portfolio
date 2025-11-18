@@ -3,6 +3,7 @@ import { CardContent } from "../../ui/card";
 import {
   Angular,
   Css,
+  DotNet,
   Html,
   Javascript,
   MongoDB,
@@ -34,6 +35,7 @@ function TechStack() {
       <MongoDB />
       <Postman />
       <ReactNative />
+      <DotNet />
     </CardContent>
   );
 }

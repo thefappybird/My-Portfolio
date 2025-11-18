@@ -10,7 +10,7 @@ function Work() {
           AccessSoft Software Solutions, Inc. | Full-Stack Developer
         </CardTitle>
         <CardDescription>
-          Feb 2024 - Nov 2024 | Cebu City, Philippines
+          Feb 2023 - Nov 2024 | Cebu City, Philippines
         </CardDescription>
       </div>
       <div className="flex flex-col gap-0.5">

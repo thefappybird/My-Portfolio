@@ -13,16 +13,14 @@ function PrimaryInfo() {
           description="Front-End Developer"
         >
           <CardDescription className="flex flex-col">
-            <p>+63 917 924 1453</p>
+            <p>+971 50 240 7012</p>
             <p>{process.env.EMAIL_ADDRESS}</p>
           </CardDescription>
         </CardHead>
       </div>
       <CardContent>
         <p>
-          I’m a web developer with experience in Next.js and have explored MERN,
-          MEAN and MEVN stacks through Udemy courses this year. I enjoy building
-          scalable applications and continuously learning new technologies.
+          I’m a web developer with experience in Next.js, Angular, Vue, React, etc. I enjoy building scalable applications and continuously learning new technologies.
         </p>
       </CardContent>
       <TechStack />
