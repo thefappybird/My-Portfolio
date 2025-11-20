@@ -8,6 +8,8 @@ Visit my Portfolio here: https://my-portfolio-unp7.vercel.app
 ---
 
 ## Tech Stack
+This is what I used to create this website: 
+
 - **Framework**: Next.js
 - **Styling**: Tailwind CSS
 - **Language**: TypeScript
