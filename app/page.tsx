@@ -15,6 +15,7 @@ import Trackr from "@/components/projects/Trackr";
 import Plato from "@/components/projects/Plato";
 import MoneyTracker from "@/components/projects/MoneyTracker";
 import UserLogs from "@/components/projects/UserLogs";
+import Portfolio from "@/components/projects/Portfolio";
 
 export default function Home() {
   return (
@@ -31,6 +32,7 @@ export default function Home() {
                 Take a look at my projects and their source code on GitHub.
               </CardDescription>
             </CardHeader>
+            <Portfolio />
             <ThesisProject />
             <HotelProject />
             <QAProject />
