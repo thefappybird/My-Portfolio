@@ -46,3 +46,11 @@ export const financeImages: string[] = [
   "/finance-tracker/graphs.png",
   "/finance-tracker/table.png",
 ];
+
+export const userLogsImages: string[] = [
+  "/user-logs/user-logs-login.png",
+  "/user-logs/user-logs-register.png",
+  "/user-logs/user-logs-profile.png",
+  "/user-logs/user-logs-dash.png",
+  "/user-logs/user-logs-edit.png",
+];

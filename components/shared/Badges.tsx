@@ -183,3 +183,29 @@ export function Tailwind() {
     </TechBadge>
   );
 }
+export function MySQL() {
+  return (
+    <TechBadge lightClass="bg-blue-500 text-white" darkClass="dark:bg-blue-600">
+      MySQL
+    </TechBadge>
+  );
+}
+
+export function Vercel() {
+  return (
+    <TechBadge lightClass="bg-black text-white" darkClass="dark:bg-gray-800">
+      Vercel
+    </TechBadge>
+  );
+}
+
+export function Azure() {
+  return (
+    <TechBadge
+      lightClass="bg-indigo-500 text-white"
+      darkClass="dark:bg-indigo-600"
+    >
+      Azure
+    </TechBadge>
+  );
+}

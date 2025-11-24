@@ -2,11 +2,13 @@ import React from "react";
 import { CardContent } from "../../ui/card";
 import {
   Angular,
+  Azure,
   Css,
   DotNet,
   Html,
   Javascript,
   MongoDB,
+  MySQL,
   NextJS,
   NodeJS,
   Postman,
@@ -15,6 +17,7 @@ import {
   Redux,
   Tailwind,
   TypeScript,
+  Vercel,
   VueJS,
 } from "@/components/shared/Badges";
 
@@ -36,6 +39,9 @@ function TechStack() {
       <Postman />
       <ReactNative />
       <DotNet />
+      <MySQL />
+      <Vercel />
+      <Azure />
     </CardContent>
   );
 }
