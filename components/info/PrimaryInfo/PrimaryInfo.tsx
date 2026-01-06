@@ -13,7 +13,7 @@ function PrimaryInfo() {
           description="Front-End Developer"
         >
           <CardDescription className="flex flex-col">
-            <p>+971 50 240 7012</p>
+            <p>{process.env.CONTACT_NUMBER}</p>
             <p>{process.env.EMAIL_ADDRESS}</p>
           </CardDescription>
         </CardHead>
