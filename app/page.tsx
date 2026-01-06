@@ -16,6 +16,8 @@ import Plato from "@/components/projects/Plato";
 import MoneyTracker from "@/components/projects/MoneyTracker";
 import UserLogs from "@/components/projects/UserLogs";
 import Portfolio from "@/components/projects/Portfolio";
+import EliteMotors from "@/components/projects/EliteMotors";
+import EstateLiving from "@/components/projects/EstateLiving";
 
 export default function Home() {
   return (
@@ -38,6 +40,8 @@ export default function Home() {
             <QAProject />
             <Trackr />
             <Plato />
+            <EstateLiving />
+            <EliteMotors />
             <UserLogs />
             <MoneyTracker />
           </Card>

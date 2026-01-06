@@ -54,3 +54,19 @@ export const userLogsImages: string[] = [
   "/user-logs/user-logs-dash.png",
   "/user-logs/user-logs-edit.png",
 ];
+
+export const carImages: string[] = [
+  "/elite-motors/hero.png",
+  "/elite-motors/cards.png",
+  "/elite-motors/about.png",
+  "/elite-motors/contact.png",
+];
+
+export const estateImages: string[] = [
+  "/estate-living/hero.png",
+  "/estate-living/cards.png",
+  "/estate-living/featured-1.png",
+  "/estate-living/featured-2.png",
+  "/estate-living/about.png",
+  "/estate-living/cta.png",
+];
