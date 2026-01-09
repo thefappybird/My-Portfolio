@@ -1,12 +1,12 @@
 import React from "react";
-import ProjectCard from "../gallery/ProjectCard";
+import ProjectCard from "../../gallery/project-card";
 import {
   Html,
   Javascript,
   MongoDB,
   NodeJS,
   ReactNative,
-} from "../shared/Badges";
+} from "../../shared/Badges";
 import { southMateImages } from "@/lib/exports";
 
 function ThesisProject() {

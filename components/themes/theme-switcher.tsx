@@ -7,13 +7,10 @@ import { useTheme } from "next-themes";
 
 export function ThemeSwitcher() {
   const { theme, setTheme } = useTheme();
-
+  if (!theme) return null;
   return (
-    <div className="flex flex-col gap-2 items-center p-2">
-      <Tabs
-        defaultValue={theme}
-        onValueChange={(value) => setTheme(value as Theme)}
-      >
+    <div className="flex flex-col gap-2 items-center">
+      <Tabs value={theme} onValueChange={(value) => setTheme(value as Theme)}>
         <TabsList className="bg-muted p-1 rounded-full shadow-md">
           <TabsTrigger
             value="light"

@@ -1,15 +1,15 @@
 import React from "react";
-import ProjectCard from "../gallery/ProjectCard";
+import ProjectCard from "../../gallery/project-card";
 import { platoImages } from "@/lib/exports";
 import {
   Azure,
   DotNet,
   MsSql,
-  Scss,
+  Sass,
   TypeScript,
   Vercel,
   VueJS,
-} from "../shared/Badges";
+} from "../../shared/Badges";
 
 function Plato() {
   return (
@@ -31,7 +31,7 @@ function Plato() {
     >
       <div className="flex gap-2 flex-wrap">
         <VueJS />
-        <Scss />
+        <Sass />
         <TypeScript />
         <DotNet />
         <MsSql />

@@ -1,5 +1,5 @@
 import React from "react";
-import ProjectCard from "../gallery/ProjectCard";
+import ProjectCard from "../../gallery/project-card";
 import { nomadImages } from "@/lib/exports";
 import {
   NextJS,
@@ -7,7 +7,7 @@ import {
   ReactJS,
   Tailwind,
   TypeScript,
-} from "../shared/Badges";
+} from "../../shared/Badges";
 
 function HotelProject() {
   return (

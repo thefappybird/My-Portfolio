@@ -1,5 +1,5 @@
 import React from "react";
-import ProjectCard from "../gallery/ProjectCard";
+import ProjectCard from "../../gallery/project-card";
 import { carImages } from "@/lib/exports";
 import {
   NextJS,
@@ -7,7 +7,7 @@ import {
   Tailwind,
   TypeScript,
   Vercel,
-} from "../shared/Badges";
+} from "../../shared/Badges";
 
 function EliteMotors() {
   return (
