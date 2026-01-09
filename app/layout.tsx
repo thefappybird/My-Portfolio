@@ -1,5 +1,5 @@
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 
 const geistSans = Geist({
@@ -13,12 +13,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Alexander's Portfolio",
-  description: "Collection of Projects made by Alexander",
+  title: "Alexander's Portfolio | Full Stack Developer in Dubai",
+  description: "Full Stack Developer for hire in Dubai",
   openGraph: {
-    title: "Alexander's Portfolio",
-    description: "Collection of Projects made by Alexander",
-    siteName: "Alexander's Portfolio",
+    title: "Alexander's Portfolio | Full Stack Developer for hire in Dubai",
+    description: "Full Stack Developer for hire in Dubai",
+    siteName: "Alexander's Portfolio | Full Stack Developer",
     images: [
       {
         url: "/public/preview-icon.png",
@@ -39,12 +39,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
         </ThemeProvider>
       </body>

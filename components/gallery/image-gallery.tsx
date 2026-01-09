@@ -7,7 +7,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import "react-medium-image-zoom/dist/styles.css";
 import Modal from "../shared/Modal";
-import ImageList from "./ImageList";
+import ImageList from "./image-list";
 
 export function ImageGallery({ images }: { images: string[] }) {
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(

@@ -7,7 +7,9 @@ import {
   CardTitle,
 } from "../ui/card";
 import LinkTo from "../shared/LinkTo";
-import { ImageGallery } from "./ImageGallery";
+import { ImageGallery } from "./image-gallery";
+import { Button } from "../ui/button";
+import { Github } from "lucide-react";
 
 interface ProjectCardProps {
   title: string;
@@ -27,21 +29,33 @@ function ProjectCard({
   children,
 }: ProjectCardProps) {
   return (
-    <CardContent>
-      <Card className="md:col-span-2 ">
-        <CardHeader className="border-b">
-          <CardTitle>
-            {link ? (
+    <Card className="md:col-span-2 ">
+      <CardHeader className={`${images.length > 0 ? "border-b" : ""}`}>
+        <CardTitle>
+          <h2>{title}</h2>
+        </CardTitle>
+        <CardDescription className="flex flex-col gap-3 ">
+          <p>{description}</p>
+          <h1 className="font-bold text-foreground text-xl">Tech Stack</h1>
+          {children}
+        </CardDescription>
+
+        <div className="flex flex-col md:flex-row gap-2 w-full pt-4">
+          {link && (
+            <Button
+              variant="outline"
+              size="lg"
+              asChild
+              title="View Live Project"
+            >
               <a
                 href={link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex gap-1 items-center hover:text-blue-700 transition-colors"
-                title={link}
+                className="bg-foreground text-background"
               >
-                <h2>{title}</h2>
                 <svg
-                  className="w-5 h-5"
+                  className="w-4 h-4"
                   viewBox="0 0 24 24"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -62,39 +76,37 @@ function ProjectCard({
                     ></path>
                   </g>
                 </svg>
+                <h1 className="font-bold">View Live Project</h1>
               </a>
-            ) : (
-              <h2>{title}</h2>
-            )}
-          </CardTitle>
-          <CardDescription>
-            <p>{description}</p>
-            {link && (
-              <div className="flex gap-2 flex-wrap">
-                <p>Deployed Website:</p>
-                <LinkTo linkTitle={title} link={link} />
-              </div>
-            )}
-            {repos.length > 0 && (
-              <div className="flex gap-2 flex-wrap">
-                <p>Repos:</p>
-                {repos.map((repo, index) => (
-                  <LinkTo
-                    key={index}
-                    linkTitle={repo.linkTitle}
-                    link={repo.link}
-                  />
-                ))}
-              </div>
-            )}
-          </CardDescription>
-          {children}
-        </CardHeader>
+            </Button>
+          )}
+          {repos.map((repo, index) => (
+            <Button
+              key={index}
+              variant="ghost"
+              size="lg"
+              asChild
+              className="border"
+            >
+              <a
+                href={repo.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={repo.linkTitle}
+              >
+                <Github />
+                <h1 className="font-bold">{repo.linkTitle} Repo</h1>
+              </a>
+            </Button>
+          ))}
+        </div>
+      </CardHeader>
+      {images.length > 0 && (
         <CardContent>
           <ImageGallery images={images} />
         </CardContent>
-      </Card>
-    </CardContent>
+      )}
+    </Card>
   );
 }
 

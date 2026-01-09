@@ -1,12 +1,12 @@
 import React from "react";
-import ProjectCard from "../gallery/ProjectCard";
+import ProjectCard from "../../gallery/project-card";
 import {
   NextJS,
   ReactJS,
   Tailwind,
   TypeScript,
   Vercel,
-} from "../shared/Badges";
+} from "../../shared/Badges";
 
 function Portfolio() {
   return (

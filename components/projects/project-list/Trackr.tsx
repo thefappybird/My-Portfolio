@@ -1,7 +1,7 @@
 import React from "react";
-import ProjectCard from "../gallery/ProjectCard";
+import ProjectCard from "../../gallery/project-card";
 import { trackrImages } from "@/lib/exports";
-import { Angular, Css, TypeScript, Vercel } from "../shared/Badges";
+import { Angular, Css, TypeScript, Vercel } from "../../shared/Badges";
 
 function Trackr() {
   return (

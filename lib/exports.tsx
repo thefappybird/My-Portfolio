@@ -1,3 +1,7 @@
+export const phoneNumber = "+971 52 596 5823";
+export const phoneNumberLink = "https://wa.me/971525965823";
+export const emailAddress = "alex.banaag1@gmail.com";
+
 export const southMateImages: string[] = [
   "/southMate/mobile/login.png",
   "/southMate/mobile/register-choice.png",

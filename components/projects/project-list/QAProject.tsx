@@ -1,6 +1,6 @@
 import React from "react";
-import ProjectCard from "../gallery/ProjectCard";
-import { Angular, DotNet, Tailwind, TypeScript } from "../shared/Badges";
+import ProjectCard from "../../gallery/project-card";
+import { Angular, DotNet, Tailwind, TypeScript } from "../../shared/Badges";
 
 function QAProject() {
   return (
