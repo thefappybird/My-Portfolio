@@ -6,7 +6,6 @@ import {
   CardHeader,
   CardTitle,
 } from "../ui/card";
-import LinkTo from "../shared/LinkTo";
 import { ImageGallery } from "./image-gallery";
 import { Button } from "../ui/button";
 import { Github } from "lucide-react";
