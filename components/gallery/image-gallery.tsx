@@ -42,7 +42,7 @@ export function ImageGallery({ images }: { images: string[] }) {
           onClick={(event: React.MouseEvent) => event.stopPropagation()}
         >
           {selectedImageIndex !== null && (
-            <div className="relative  w-full overflow-hidden rounded ">
+            <div className="relative w-full overflow-hidden rounded min-h-[80vh] min-w-[80vw]">
               <Button
                 variant="ghost"
                 size="icon"
@@ -61,7 +61,7 @@ export function ImageGallery({ images }: { images: string[] }) {
               </Button>
               <TransformWrapper>
                 {({ zoomIn, zoomOut, resetTransform }) => (
-                  <div className="border bg-black flex items-center flex-col text-black">
+                  <div className=" border bg-black flex h-[80vh] w-[80vw] items-center flex-col text-black">
                     {/* Zoom Control Buttons */}
                     <div className="absolute bottom-2  z-10 flex gap-2 bg-white/80 p-1 rounded-md shadow">
                       <Button
@@ -88,15 +88,20 @@ export function ImageGallery({ images }: { images: string[] }) {
                     </div>
 
                     {/* Zoomable Image */}
-                    <TransformComponent>
-                      <Image
-                        src={images[selectedImageIndex] || "/placeholder.svg"}
-                        alt={`Project image ${selectedImageIndex + 1}`}
-                        width={1200}
-                        height={800}
-                        className="h-auto w-auto select-none"
-                      />
-                    </TransformComponent>
+                    <div className="flex h-full w-full">
+                      <TransformComponent
+                        wrapperClass="!w-full !h-full"
+                        contentClass="!w-full !h-full justify-center"
+                      >
+                        <Image
+                          src={images[selectedImageIndex] || "/placeholder.svg"}
+                          alt={`Project image ${selectedImageIndex + 1}`}
+                          width={1200}
+                          height={800}
+                          className="h-auto w-auto select-none object-contain md:aspect-video md:object-scale-down"
+                        />
+                      </TransformComponent>
+                    </div>
                   </div>
                 )}
               </TransformWrapper>
