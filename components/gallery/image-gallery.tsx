@@ -46,7 +46,7 @@ export function ImageGallery({ images }: { images: string[] }) {
               <Button
                 variant="ghost"
                 size="icon"
-                className="  absolute bg-gray-500/50 text-white h-full w-fit z-11"
+                className=" top-1/2 left-2 absolute bg-black text-white p-2 w-fit z-11"
                 onClick={goToPreviousImage}
               >
                 <ChevronLeft className="h-6 w-6" />
@@ -54,7 +54,7 @@ export function ImageGallery({ images }: { images: string[] }) {
               <Button
                 variant="ghost"
                 size="icon"
-                className=" absolute bg-gray-500/50 text-white right-0 w-fit h-full z-11"
+                className=" top-1/2 right-2 absolute bg-black text-white p-2 w-fit z-11"
                 onClick={goToNextImage}
               >
                 <ChevronRight className="h-6 w-6" />
@@ -94,7 +94,7 @@ export function ImageGallery({ images }: { images: string[] }) {
                         alt={`Project image ${selectedImageIndex + 1}`}
                         width={1200}
                         height={800}
-                        className="h-auto w-auto select-none"
+                        className="h-auto w-auto select-none md:aspect-video md:object-scale-down"
                       />
                     </TransformComponent>
                   </div>
