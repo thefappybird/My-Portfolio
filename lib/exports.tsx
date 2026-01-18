@@ -74,3 +74,11 @@ export const estateImages: string[] = [
   "/estate-living/about.png",
   "/estate-living/cta.png",
 ];
+
+export const chronoTaskImages: string[] = [
+  "/chrono-task/chrono-splash.png",
+  "/chrono-task/chrono-skeleton.png",
+  "/chrono-task/chrono-dash.png",
+  "/chrono-task/chrono-dash-mobile.png",
+  "/chrono-task/chrono-dash-mobile-2.png",
+]
