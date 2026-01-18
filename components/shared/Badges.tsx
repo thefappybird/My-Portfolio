@@ -411,3 +411,21 @@ export function Express() {
     </TechBadge>
   );
 }
+
+export function Nuxt() {
+  return (
+    <TechBadge
+      lightClass="bg-green-600 "
+      icon={
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-4 h-4">
+          <g>
+            <path d="M23.1 8.6c.5-.9 1.3-1.4 2.3-1.4s1.8.5 2.3 1.4l15.2 27.2c.5.9.5 1.8 0 2.7-.5.9-1.3 1.4-2.3 1.4H10.2c-1 0-1.8-.5-2.3-1.4-.5-.9-.5-1.8 0-2.7L23.1 8.6zm2.3 2.7L10.2 38.5h27.6L25.4 11.3z" fill="#00DC82"/>
+            <path d="M13.7 34.1l7.6-13.6c.5-.9 1.3-1.4 2.3-1.4s1.8.5 2.3 1.4l7.6 13.6c.5.9.5 1.8 0 2.7-.5.9-1.3 1.4-2.3 1.4H16c-1 0-1.8-.5-2.3-1.4-.5-.9-.5-1.8 0-2.7zm9.9-10.9l-7.6 13.6H31.2l-7.6-13.6z" fill="#108775"/>
+          </g>
+        </svg>
+      }
+    >
+      Nuxt
+    </TechBadge>
+  );
+}

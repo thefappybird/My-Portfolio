@@ -7,6 +7,7 @@ import Trackr from "./project-list/Trackr";
 import UserLogs from "./project-list/UserLogs";
 import HotelProject from "./project-list/HotelProject";
 import ThesisProject from "./project-list/ThesisProject";
+import ChronoTask from "./project-list/ChronoTask";
 
 function ProjectSection() {
   return (
@@ -15,6 +16,7 @@ function ProjectSection() {
         A collection of projects showcasing my skills in full-stack development,
         UI/UX design, and modern web technologies.
       </p>
+      <ChronoTask/>
       <Plato />
       <EliteMotors />
       <EstateLiving />
