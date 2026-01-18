@@ -15,6 +15,7 @@ import {
   MySQL,
   NextJS,
   NodeJS,
+  Nuxt,
   Postman,
   Prisma,
   ReactJS,
@@ -42,6 +43,7 @@ const cards = [
         <Redux />
         <Angular />
         <VueJS />
+        <Nuxt />
         <Tailwind />
         <Sass />
       </>
