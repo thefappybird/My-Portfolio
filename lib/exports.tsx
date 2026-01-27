@@ -80,5 +80,8 @@ export const chronoTaskImages: string[] = [
   "/chrono-task/chrono-skeleton.png",
   "/chrono-task/chrono-dash.png",
   "/chrono-task/chrono-dash-mobile.png",
-  "/chrono-task/chrono-dash-mobile-2.png",
+  "/chrono-task/chrono-calendar.png",
+  "/chrono-task/calendar-mobile.png",
+  "/chrono-task/chrono-list.png",
+  "/chrono-task/list-mobile.png",
 ]
