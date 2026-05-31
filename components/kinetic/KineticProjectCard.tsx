@@ -97,7 +97,7 @@ export default function KineticProjectCard({ project, index }: ProjectCardProps)
         tabIndex={0}
         aria-haspopup="dialog"
         aria-label={`${project.title} — ${tModal("openLabel")}`}
-        className="relative flex-shrink-0 w-[300px] md:w-[420px] border-2 border-foreground bg-card overflow-hidden group cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--k-1)]"
+        className="relative flex-shrink-0 w-full md:w-[420px] border-2 border-foreground bg-card overflow-hidden group cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--k-1)]"
         style={{ rotateX, rotateY, transformStyle: "preserve-3d", perspective: 800 }}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
@@ -115,7 +115,7 @@ export default function KineticProjectCard({ project, index }: ProjectCardProps)
               alt={`Screenshot of ${project.title}`}
               fill
               className="object-cover pointer-events-none"
-              sizes="(max-width: 768px) 300px, 420px"
+              sizes="(max-width: 768px) 100vw, 420px"
               draggable={false}
             />
           ) : (

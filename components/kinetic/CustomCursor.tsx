@@ -75,8 +75,8 @@ export default function CustomCursor() {
         animate={{
           width: size,
           height: size,
-          backgroundColor: isWord ? "var(--k-1)" : "transparent",
-          borderColor: isWord ? "var(--k-1)" : "var(--foreground)",
+          backgroundColor: isWord || isArrow ? "var(--k-1)" : "transparent",
+          borderColor: isWord || isArrow ? "var(--k-1)" : "var(--foreground)",
         }}
         transition={{ type: "spring", stiffness: 400, damping: 30 }}
         className="flex items-center justify-center rounded-full border-2 border-solid"
@@ -93,7 +93,7 @@ export default function CustomCursor() {
           </motion.span>
         )}
         {isArrow && (
-          <span className="text-foreground text-[10px] font-bold leading-none">↗</span>
+          <span className="text-white text-[10px] font-bold leading-none">↗</span>
         )}
       </motion.div>
     </motion.div>
