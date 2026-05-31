@@ -40,9 +40,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# local project notes (do not commit)
-CLAUDE.md
-.claude/
-
 # parallel design worktrees
 .renditions/
