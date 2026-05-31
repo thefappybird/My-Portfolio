@@ -330,9 +330,10 @@ export default function KineticProjectCard({ project, index }: ProjectCardProps)
         }}
       >
         <DialogContent
+          overlayClassName="z-[1000]"
           className={cn(
-            "rounded-none border-2 border-foreground bg-background shadow-none",
-            "w-auto max-w-[96vw] p-2"
+            "z-[1000] rounded-none border-2 border-foreground bg-background shadow-none",
+            "max-w-[95vw] sm:max-w-[95vw] p-2"
           )}
         >
           <DialogTitle className="sr-only">{project.title}</DialogTitle>
@@ -341,7 +342,7 @@ export default function KineticProjectCard({ project, index }: ProjectCardProps)
             <img
               src={lightboxSrc}
               alt={project.title}
-              className="block mx-auto h-auto w-auto max-h-[86vh] max-w-[92vw] object-contain"
+              className="max-h-[86vh] max-w-full w-auto h-auto object-contain mx-auto block"
             />
           )}
         </DialogContent>
