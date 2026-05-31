@@ -57,22 +57,17 @@ export default function GallurioFeature() {
 
           {/* Description side */}
           <div>
-            {/* Color-blocked visual placeholder */}
+            {/* Brand tile */}
             <div
               className="w-full h-40 md:h-56 mb-6 border-2 border-foreground flex items-center justify-center"
-              style={{ backgroundColor: "var(--k-1)", opacity: 0.06 }}
-              aria-hidden
+              style={{ backgroundColor: "var(--k-1)" }}
             >
-              <span
-                className="text-5xl md:text-7xl font-black tracking-tight"
-                style={{
-                  fontFamily: "var(--font-display-face)",
-                  color: "var(--k-1)",
-                  opacity: 0.4,
-                }}
-              >
-                G
-              </span>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/gallurio-icon.svg"
+                alt={t("name")}
+                className="w-24 h-24 md:w-32 md:h-32"
+              />
             </div>
             <RevealText delay={0.15}>
               <p className="text-base text-muted-foreground leading-relaxed">

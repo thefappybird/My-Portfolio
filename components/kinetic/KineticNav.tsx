@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useTranslations, useLocale } from "next-intl";
 import { useRouter, usePathname } from "@/i18n/navigation";
@@ -17,7 +17,6 @@ export default function KineticNav() {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
-  const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const { scrollY } = useScroll();
   const borderOpacity = useTransform(scrollY, [0, 80], [0, 1]);
@@ -28,20 +27,13 @@ export default function KineticNav() {
     { label: t("contact"), href: "#contact" },
   ];
 
-  useEffect(() => {
-    return scrollY.on("change", (v) => setScrolled(v > 40));
-  }, [scrollY]);
-
   function switchLocale(next: string) {
     router.replace(pathname, { locale: next });
   }
 
   return (
     <header
-      className={cn(
-        "fixed top-0 start-0 end-0 z-50 transition-colors duration-300",
-        scrolled ? "bg-background/95 backdrop-blur-sm" : "bg-transparent"
-      )}
+      className="fixed top-0 start-0 end-0 z-50 bg-background"
     >
       <motion.div
         className="absolute bottom-0 start-0 end-0 h-[2px] bg-foreground"

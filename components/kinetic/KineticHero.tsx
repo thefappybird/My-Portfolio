@@ -154,8 +154,8 @@ export default function KineticHero() {
         </div>
       </motion.div>
 
-      {/* Marquee strip */}
-      <div className="mt-16 border-t-2 border-foreground">
+      {/* Marquee strip — opaque band so it never bleeds into the fixed nav */}
+      <div className="relative z-30 mt-16 border-t-2 border-foreground bg-background">
         <div className="py-4 border-b border-foreground/20">
           <KineticMarquee
             items={marqueeTop}
