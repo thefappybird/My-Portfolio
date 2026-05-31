@@ -1,6 +1,8 @@
 import "./globals.css";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Archivo_Black } from "next/font/google";
 import { ThemeProvider } from "next-themes";
+import SmoothScrollProvider from "@/components/kinetic/SmoothScrollProvider";
+import CustomCursor from "@/components/kinetic/CustomCursor";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -10,6 +12,12 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const archivoBlack = Archivo_Black({
+  variable: "--font-display-face",
+  subsets: ["latin"],
+  weight: "400",
 });
 
 export const metadata = {
@@ -44,7 +52,6 @@ export const metadata = {
   authors: [{ name: "Alexander Banaag" }],
   creator: "Alexander Banaag",
   metadataBase: new URL("https://my-portfolio-unp7.vercel.app"),
-
   openGraph: {
     title: "Alexander Banaag | Full Stack & Frontend Developer in Dubai",
     description:
@@ -62,7 +69,6 @@ export const metadata = {
     locale: "en_US",
     type: "website",
   },
-
   twitter: {
     card: "summary_large_image",
     title: "Alexander Banaag | Full Stack & Frontend Developer",
@@ -70,7 +76,6 @@ export const metadata = {
       "Dubai-based Full Stack & Creative Frontend Developer specializing in modern UI, interaction, and responsive web design.",
     images: ["/thumbnail.png"],
   },
-
   robots: {
     index: true,
     follow: true,
@@ -89,10 +94,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${archivoBlack.variable} antialiased`}
       >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {children}
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+          <SmoothScrollProvider>
+            <CustomCursor />
+            {children}
+          </SmoothScrollProvider>
         </ThemeProvider>
       </body>
     </html>
