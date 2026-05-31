@@ -208,12 +208,15 @@ export default function KineticProjectCard({ project, index }: ProjectCardProps)
             // Brutalist overrides — square, ink border, cream bg, no shadow
             "rounded-none border-2 border-foreground shadow-none bg-background",
             "w-full max-w-3xl lg:max-w-4xl p-0",
-            "max-h-[90vh] flex flex-col"
+            "flex flex-col"
           )}
           // Close button is rendered by DialogContent; position is rtl-aware via absolute end-4
         >
-          {/* Scrollable body */}
-          <div className="overflow-y-auto max-h-[85vh] flex flex-col">
+          {/* Scrollable body — data-lenis-prevent releases Lenis so native wheel scroll works */}
+          <div
+            data-lenis-prevent
+            className="overflow-y-auto overscroll-contain max-h-[85vh] flex flex-col"
+          >
             {/* Modal header */}
             <DialogHeader className="p-6 md:p-8 pb-4 border-b-2 border-foreground/10 text-start gap-3">
               <div className="flex items-start justify-between gap-4 pe-8">

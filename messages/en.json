@@ -16,7 +16,7 @@
     "line2a": "FRONT",
     "line2b": "END",
     "line3": "ENGINEER",
-    "sub": "I build performant, accessible, and visually precise interfaces. Currently owning front-end on a GRC SaaS platform serving GCC enterprises — shipping real-time data, Arabic RTL, and complex RBAC at scale.",
+    "sub": "I ship performant, accessible, pixel-precise interfaces — from real-time GRC dashboards with Arabic RTL and complex RBAC, to full-stack products delivered end to end. Open to senior frontend and full-stack opportunities.",
     "ctaWork": "See My Work",
     "ctaAbout": "About Me",
     "ctaCv": "Download CV"
@@ -34,8 +34,8 @@
     "headingLine1": "NUMBERS",
     "headingLine2": "THAT",
     "headingLine3": "MATTER.",
-    "body1": "I engineer the front-end, own the product UX, and push code that scales. Currently at a GRC SaaS company where I lead client-facing interfaces for GCC enterprises — risk dashboards, maturity assessments, Arabic RTL, real-time WebSocket data.",
-    "body2": "Before that: Accenture (deep legacy refactor on internal QA tooling), freelance CRM, hotel management systems. I've seen the full stack — from PostgreSQL query tuning to CSS keyframe animation — and I write code the same way whether anyone's watching or not.",
+    "body1": "I engineer the front-end, own the product UX, and push code that scales. Across GCC enterprises I've built risk dashboards, maturity assessments, Arabic RTL, and real-time WebSocket data pipelines — the kind of work where correctness and performance aren't optional.",
+    "body2": "Beyond that: a deep legacy refactor of org-wide QA tooling at Accenture, a freelance CRM that became a UAE sales company's operational backbone, and an end-to-end Hotel Management System built solo. Full stack, front to back — and I write code the same way whether anyone's watching or not.",
     "skillsLabel": "Technologies",
     "skills": [
       "React / Next.js",
@@ -64,10 +64,10 @@
       "featuredLabel": "Featured",
       "comingSoon": "Coming Soon",
       "name": "Gallurio",
-      "tagline": "A CRM built for how local teams actually sell.",
-      "description": "Gallurio is a CRM SaaS platform launching in the Philippines — built from the ground up for local sales teams. Lead capture, pipeline management, follow-ups, and team collaboration, without the enterprise bloat. My first full product, currently in active development.",
+      "tagline": "CRM + portfolio builder for creatives.",
+      "description": "Gallurio is an all-in-one platform for photographers, videographers, and event coordinators — manage your bookings and client relationships in one place, then build and publish your own portfolio site by dragging and dropping images and layouts straight from the app. My first full product, launching in the Philippines soon.",
       "cta": "Notify Me",
-      "ctaDisabled": "In Development"
+      "ctaDisabled": "Launching Soon"
     },
     "items": {
       "chronoTask": {
@@ -108,12 +108,12 @@
     "label": "03 — Experience",
     "headingLine1": "WHERE I'VE",
     "headingLine2": "WORKED.",
-    "currentBadge": "Current",
+    "currentBadge": "Latest",
     "roles": {
       "rezilens": {
         "title": "Front End Developer",
         "period": "Jan 2026 – Present",
-        "summary": "Own the front-end of a GRC SaaS/PaaS platform serving GCC enterprises — data-rich risk, compliance, and maturity dashboards that translate ECC, CIS, and CMMI frameworks into intuitive workflows. Led the Arabic localization (RTL + i18n), shipped WebSocket real-time data feeds, and enforced granular role-based access control. End-to-end: client requirements to scoped user stories, code reviews, CI/CD, and Agile delivery."
+        "summary": "Owned the front-end of a GRC SaaS/PaaS platform for GCC enterprises — data-rich risk, compliance, and maturity dashboards translating ECC, CIS, and CMMI frameworks into intuitive workflows. Led Arabic localization (RTL + i18n), shipped WebSocket real-time data feeds, and implemented granular RBAC. Managed the full delivery loop: client requirements → scoped user stories → code review → CI/CD → Agile release."
       },
       "accenture": {
         "title": "Front End Developer",

@@ -213,7 +213,7 @@ export default function KineticProjectsRail() {
       {/* Desktop: sticky horizontal scroll rail (md+) */}
       <div
         ref={sectionRef}
-        style={{ height: `${PROJECTS.length * 120}vh` }}
+        style={{ height: `${PROJECTS.length * 55}vh` }}
         className="relative hidden md:block"
       >
         <div className="project-rail-sticky">
