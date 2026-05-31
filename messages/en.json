@@ -1,6 +1,7 @@
 {
   "nav": {
     "work": "Work",
+    "experience": "Experience",
     "about": "About",
     "contact": "Contact",
     "hireCta": "Hire me",
@@ -53,6 +54,12 @@
     "headingLine2": "SHIPPED.",
     "instruction": "Scroll to navigate — drag to explore",
     "mobileInstruction": "Swipe to explore",
+    "modal": {
+      "openLabel": "View project details",
+      "gallery": "Gallery",
+      "screenshotAlt": "Screenshot {n} of {title}",
+      "close": "Close"
+    },
     "gallurio": {
       "featuredLabel": "Featured",
       "comingSoon": "Coming Soon",
@@ -97,8 +104,41 @@
       }
     }
   },
+  "experience": {
+    "label": "03 — Experience",
+    "headingLine1": "WHERE I'VE",
+    "headingLine2": "WORKED.",
+    "currentBadge": "Current",
+    "roles": {
+      "rezilens": {
+        "title": "Front End Developer",
+        "period": "Jan 2026 – Present",
+        "summary": "Own the front-end of a GRC SaaS/PaaS platform serving GCC enterprises — data-rich risk, compliance, and maturity dashboards that translate ECC, CIS, and CMMI frameworks into intuitive workflows. Led the Arabic localization (RTL + i18n), shipped WebSocket real-time data feeds, and enforced granular role-based access control. End-to-end: client requirements to scoped user stories, code reviews, CI/CD, and Agile delivery."
+      },
+      "accenture": {
+        "title": "Front End Developer",
+        "period": "Nov 2024 – Dec 2025",
+        "summary": "Took ownership of a mission-critical internal QA ticketing system used org-wide. Led a deep refactor of years of accumulated legacy code into a clean, modular component architecture. Designed and shipped an integrated ticket-history feature that sharpened the accuracy and reliability of the entire QA process."
+      },
+      "freelance": {
+        "title": "Full Stack Developer",
+        "period": "Jan 2025 – Oct 2025",
+        "summary": "Sole developer of an internal CRM that became a UAE sales company's operational backbone. Built it ground-up — React frontend, Node.js REST APIs — and owned the full delivery lifecycle from requirements gathering through production deployment."
+      },
+      "accesssoft": {
+        "title": "Full Stack Developer",
+        "period": "Feb 2023 – Nov 2024",
+        "summary": "Led development of an enterprise Hotel Management System for a live hotel client in Mindanao. Built end-to-end with Next.js, Angular, and .NET (C#) — responsive staff interfaces, connected APIs, and a database designed for real operational load."
+      },
+      "sykes": {
+        "title": "Software Developer Intern",
+        "period": "Dec 2021 – Jul 2022",
+        "summary": "Built and enhanced React components, integrated REST APIs, and turned design mockups into responsive layouts with CSS, Tailwind, and SASS — supporting senior developers on live production features."
+      }
+    }
+  },
   "contact": {
-    "label": "03 — Contact",
+    "label": "04 — Contact",
     "heading1": "LET'S",
     "heading2": "WORK.",
     "emailCta": "Send an Email",

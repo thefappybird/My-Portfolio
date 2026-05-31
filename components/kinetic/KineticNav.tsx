@@ -23,6 +23,7 @@ export default function KineticNav() {
 
   const NAV_LINKS = [
     { label: t("work"), href: "#projects" },
+    { label: t("experience"), href: "#experience" },
     { label: t("about"), href: "#about" },
     { label: t("contact"), href: "#contact" },
   ];
