@@ -2,40 +2,51 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 import { motion, useMotionValue, useSpring } from "motion/react";
-
-type CursorLabel = "VIEW" | "DRAG" | "↗" | "";
+import { useTranslations } from "next-intl";
 
 // Bold circle cursor with context-aware label. Hidden on touch devices.
 export default function CustomCursor() {
-  const [label, setLabel] = useState<CursorLabel>("");
+  const t = useTranslations("common");
+  const [label, setLabel] = useState<string>("");
   const [visible, setVisible] = useState(false);
   const [isTouch, setIsTouch] = useState(false);
+  // Track resolved labels so we can localize VIEW/DRAG
+  const viewLabel = useRef(t("viewLabel"));
+  const dragLabel = useRef(t("dragLabel"));
 
   const rawX = useMotionValue(0);
   const rawY = useMotionValue(0);
   const x = useSpring(rawX, { stiffness: 280, damping: 28, mass: 0.5 });
   const y = useSpring(rawY, { stiffness: 280, damping: 28, mass: 0.5 });
 
-  const updateLabel = useCallback((e: MouseEvent) => {
-    rawX.set(e.clientX);
-    rawY.set(e.clientY);
+  const updateLabel = useCallback(
+    (e: MouseEvent) => {
+      rawX.set(e.clientX);
+      rawY.set(e.clientY);
 
-    const target = e.target as Element | null;
-    if (!target) return;
+      const target = e.target as Element | null;
+      if (!target) return;
 
-    if (target.closest("[data-cursor='drag']")) {
-      setLabel("DRAG");
-    } else if (target.closest("[data-cursor='view']")) {
-      setLabel("VIEW");
-    } else if (target.closest("a") || target.closest("button")) {
-      setLabel("↗");
-    } else {
-      setLabel("");
-    }
-  }, [rawX, rawY]);
+      if (target.closest("[data-cursor='drag']")) {
+        setLabel(dragLabel.current);
+      } else if (target.closest("[data-cursor='view']")) {
+        setLabel(viewLabel.current);
+      } else if (target.closest("a") || target.closest("button")) {
+        setLabel("↗");
+      } else {
+        setLabel("");
+      }
+    },
+    [rawX, rawY]
+  );
 
   useEffect(() => {
-    // Bail on touch-primary devices
+    // Update refs whenever locale changes
+    viewLabel.current = t("viewLabel");
+    dragLabel.current = t("dragLabel");
+  }, [t]);
+
+  useEffect(() => {
     if (window.matchMedia("(pointer: coarse)").matches) {
       setIsTouch(true);
       return;

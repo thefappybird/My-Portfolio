@@ -2,14 +2,23 @@
 
 import Image from "next/image";
 import { motion, useMotionValue, useTransform } from "motion/react";
+import { useTranslations } from "next-intl";
+
+export interface Repo {
+  linkTitle: string;
+  link: string;
+}
 
 export interface Project {
   title: string;
+  tagline: string;
   tags: string[];
   description: string;
   images: string[];
   link: string | null;
+  repos: Repo[];
   accentColor: string;
+  kind: "Demo" | "Professional";
 }
 
 interface ProjectCardProps {
@@ -18,6 +27,7 @@ interface ProjectCardProps {
 }
 
 export default function KineticProjectCard({ project, index }: ProjectCardProps) {
+  const t = useTranslations("common");
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const rotateX = useTransform(y, [-60, 60], [4, -4]);
@@ -39,7 +49,7 @@ export default function KineticProjectCard({ project, index }: ProjectCardProps)
   return (
     <motion.article
       data-cursor="view"
-      className="relative flex-shrink-0 w-[320px] md:w-[420px] border-2 border-foreground bg-card overflow-hidden group"
+      className="relative flex-shrink-0 w-[300px] md:w-[420px] border-2 border-foreground bg-card overflow-hidden group"
       style={{ rotateX, rotateY, transformStyle: "preserve-3d", perspective: 800 }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
@@ -48,26 +58,25 @@ export default function KineticProjectCard({ project, index }: ProjectCardProps)
       aria-label={`Project: ${project.title}`}
     >
       {/* Image */}
-      <div className="card-img-wrap relative w-full h-[240px] md:h-[300px] border-b-2 border-foreground">
+      <div className="card-img-wrap relative w-full h-[200px] md:h-[300px] border-b-2 border-foreground">
         {mainImage ? (
           <Image
             src={mainImage}
             alt={`Screenshot of ${project.title}`}
             fill
             className="object-cover"
-            sizes="(max-width: 768px) 320px, 420px"
+            sizes="(max-width: 768px) 300px, 420px"
           />
         ) : (
           <div className="w-full h-full" style={{ backgroundColor: project.accentColor }} />
         )}
-        {/* Duotone overlay on hover */}
         <div
           className="absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity duration-500 mix-blend-multiply"
           style={{ backgroundColor: project.accentColor }}
           aria-hidden
         />
-        {/* Index tag */}
-        <div className="absolute top-4 left-4">
+        {/* Index tag — logical start */}
+        <div className="absolute top-4 start-4">
           <span
             className="text-xs font-bold tracking-widest uppercase px-2 py-1 text-white"
             style={{ backgroundColor: project.accentColor }}
@@ -75,18 +84,26 @@ export default function KineticProjectCard({ project, index }: ProjectCardProps)
             {String(index + 1).padStart(2, "0")}
           </span>
         </div>
+        {/* Kind badge — logical end */}
+        <div className="absolute top-4 end-4">
+          <span className="text-[10px] font-bold tracking-widest uppercase px-2 py-1 bg-background/90 text-foreground border border-foreground/20">
+            {project.kind === "Demo" ? t("demo") : t("professional")}
+          </span>
+        </div>
       </div>
 
       {/* Body */}
-      <div className="p-6">
+      <div className="p-5 md:p-6">
         <h3
-          className="text-2xl md:text-3xl leading-tight mb-3 tracking-tight"
+          className="text-xl md:text-3xl leading-tight mb-1 tracking-tight"
           style={{ fontFamily: "var(--font-display-face)" }}
         >
           {project.title}
         </h3>
+        <p className="text-xs text-[var(--k-1)] font-bold tracking-widest uppercase mb-3">
+          {project.tagline}
+        </p>
 
-        {/* Tags */}
         <ul className="flex flex-wrap gap-2 mb-4 list-none p-0 m-0">
           {project.tags.map((tag) => (
             <li
@@ -102,17 +119,31 @@ export default function KineticProjectCard({ project, index }: ProjectCardProps)
           {project.description}
         </p>
 
-        {project.link && (
-          <a
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            data-cursor="↗"
-            className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase border-b-2 border-foreground pb-0.5 hover:border-[var(--k-1)] hover:text-[var(--k-1)] transition-colors"
-          >
-            Live Site <span aria-hidden>↗</span>
-          </a>
-        )}
+        <div className="flex flex-wrap gap-4">
+          {project.link && (
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cursor="↗"
+              className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase border-b-2 border-foreground pb-0.5 hover:border-[var(--k-1)] hover:text-[var(--k-1)] transition-colors"
+            >
+              {t("liveSite")} <span aria-hidden>↗</span>
+            </a>
+          )}
+          {project.repos.map((repo) => (
+            <a
+              key={repo.link}
+              href={repo.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cursor="↗"
+              className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase border-b-2 border-foreground/40 pb-0.5 hover:border-[var(--k-1)] hover:text-[var(--k-1)] transition-colors text-foreground/60"
+            >
+              {repo.linkTitle} <span aria-hidden>↗</span>
+            </a>
+          ))}
+        </div>
       </div>
     </motion.article>
   );

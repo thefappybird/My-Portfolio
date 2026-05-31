@@ -1,0 +1,126 @@
+{
+  "nav": {
+    "work": "Work",
+    "about": "About",
+    "contact": "Contact",
+    "hireCta": "Hire me",
+    "en": "EN",
+    "ar": "ع",
+    "english": "English",
+    "arabic": "العربية"
+  },
+  "hero": {
+    "status": "Dubai, UAE — Available for opportunities",
+    "line1": "CREATIVE",
+    "line2a": "FRONT",
+    "line2b": "END",
+    "line3": "ENGINEER",
+    "sub": "I build performant, accessible, and visually precise interfaces. Currently owning front-end on a GRC SaaS platform serving GCC enterprises — shipping real-time data, Arabic RTL, and complex RBAC at scale.",
+    "ctaWork": "See My Work",
+    "ctaAbout": "About Me",
+    "ctaCv": "Download CV"
+  },
+  "about": {
+    "label": "01 — About",
+    "statYears": "4+",
+    "statYearsLabel": "Years shipping",
+    "statProducts": "15+",
+    "statProductsLabel": "Products built",
+    "statSaaS": "2",
+    "statSaaSLabel": "Enterprise SaaS",
+    "statMarket": "GCC",
+    "statMarketLabel": "Market focus",
+    "headingLine1": "NUMBERS",
+    "headingLine2": "THAT",
+    "headingLine3": "MATTER.",
+    "body1": "I engineer the front-end, own the product UX, and push code that scales. Currently at a GRC SaaS company where I lead client-facing interfaces for GCC enterprises — risk dashboards, maturity assessments, Arabic RTL, real-time WebSocket data.",
+    "body2": "Before that: Accenture (deep legacy refactor on internal QA tooling), freelance CRM, hotel management systems. I've seen the full stack — from PostgreSQL query tuning to CSS keyframe animation — and I write code the same way whether anyone's watching or not.",
+    "skillsLabel": "Technologies",
+    "skills": [
+      "React / Next.js",
+      "TypeScript",
+      "Node.js",
+      "Tailwind CSS",
+      "PostgreSQL",
+      "Vue / Nuxt",
+      "WebSocket",
+      "RTL / i18n"
+    ]
+  },
+  "projects": {
+    "label": "02 — Selected Work",
+    "headingLine1": "WHAT I'VE",
+    "headingLine2": "SHIPPED.",
+    "instruction": "Scroll to navigate — drag to explore",
+    "mobileInstruction": "Swipe to explore",
+    "gallurio": {
+      "featuredLabel": "Featured",
+      "comingSoon": "Coming Soon",
+      "name": "Gallurio",
+      "tagline": "A CRM built for how local teams actually sell.",
+      "description": "Gallurio is a CRM SaaS platform launching in the Philippines — built from the ground up for local sales teams. Lead capture, pipeline management, follow-ups, and team collaboration, without the enterprise bloat. My first full product, currently in active development.",
+      "cta": "Notify Me",
+      "ctaDisabled": "In Development"
+    },
+    "items": {
+      "chronoTask": {
+        "tagline": "Task management built for focus.",
+        "description": "Nuxt-powered task app with calendar views, drag-and-drop scheduling, and a clean dashboard. Built to stay out of your way while keeping every deadline visible."
+      },
+      "plato": {
+        "tagline": "Recipe planning with a real backend.",
+        "description": "Full-stack recipe planner with .NET 9 API, MS SQL database, OAuth authentication, user favorites, and a paginated explore feed. Full auth-to-data ownership cycle."
+      },
+      "trackr": {
+        "tagline": "Expense tracking with Angular Signals.",
+        "description": "Standalone Angular 19 app using Signals and ng2-charts for live expense categorization, animated graphs, and responsive mobile layout."
+      },
+      "eliteMotors": {
+        "tagline": "A car dealership site that sells.",
+        "description": "Marketing site for a luxury car dealership. Animated hero, inventory grid with filtering, lead-capture contact flow, and optimized Core Web Vitals."
+      },
+      "estateLiving": {
+        "tagline": "Property listings, done right.",
+        "description": "Real-estate portal with image gallery carousels, featured property blocks, and a clean inquiry flow — built to convert visitors into leads."
+      },
+      "userTracker": {
+        "tagline": "Audit log with RBAC — built in 3 days.",
+        "description": "Full-stack user audit tracker built as an interview project. React frontend with Node.js + MySQL backend, role-based access control, and filterable activity logs."
+      },
+      "financeTracker": {
+        "tagline": "Budgeting with real-time graphs.",
+        "description": "Personal finance app with categorized transaction entry, trend visualization, and monthly summary breakdowns. Clean, fast, mobile-ready."
+      },
+      "hotelHMS": {
+        "tagline": "Hotel management — sole developer.",
+        "description": "End-to-end HMS for a live hotel client. Reservations, room availability calendars, staff scheduling, and reporting dashboards — Prisma + Next.js, built solo."
+      }
+    }
+  },
+  "contact": {
+    "label": "03 — Contact",
+    "heading1": "LET'S",
+    "heading2": "WORK.",
+    "emailCta": "Send an Email",
+    "whatsappCta": "WhatsApp",
+    "downloadCv": "Download CV",
+    "copyright": "© 2026 Alexander Banaag",
+    "marqueeItems": [
+      "Let's Build Something",
+      "Dubai · UAE",
+      "Open to Roles",
+      "Freelance Welcome",
+      "Frontend · Full Stack"
+    ]
+  },
+  "common": {
+    "liveSite": "Live Site",
+    "repo": "Repo",
+    "backendApi": "Backend API",
+    "comingSoon": "Coming Soon",
+    "demo": "Demo",
+    "professional": "Professional",
+    "viewLabel": "VIEW",
+    "dragLabel": "DRAG"
+  }
+}

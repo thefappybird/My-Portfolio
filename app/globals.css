@@ -210,3 +210,22 @@ a {
 button {
   cursor: none;
 }
+
+/* Arabic display face — activated when dir="rtl" is set on <html> */
+[dir="rtl"] {
+  --font-display-face: var(--font-arabic-display);
+}
+
+/* Marquee direction correction for RTL reading order */
+[dir="rtl"] .marquee-track-left {
+  animation-name: marquee-right;
+}
+[dir="rtl"] .marquee-track-right {
+  animation-name: marquee-left;
+}
+
+/* Prevent horizontal overflow in all locales */
+html,
+body {
+  overflow-x: hidden;
+}
