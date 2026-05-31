@@ -20,12 +20,12 @@ const ROLES: Role[] = [
     company: "Rezilens, LLC",
     location: "Dubai, UAE",
     isCurrent: true,
-    tags: ["React", "Next.js", "TypeScript", "WebSocket", "RBAC", "Arabic/RTL"],
+    tags: ["Vue.js", "TypeScript", "WebSocket", "NATS.io", "Sass", "Tailwind"],
   },
   {
     key: "accenture",
     company: "Accenture, Inc.",
-    location: "Remote",
+    location: "Cebu, PH",
     tags: ["Angular", "TypeScript", ".NET", "REST"],
   },
   {
@@ -37,13 +37,13 @@ const ROLES: Role[] = [
   {
     key: "accesssoft",
     company: "AccessSoft Solutions, Inc.",
-    location: "Mindanao, PH",
+    location: "Cebu, PH",
     tags: ["Next.js", "Angular", ".NET", "SQL"],
   },
   {
     key: "sykes",
     company: "SYKES Enterprises",
-    location: "Remote",
+    location: "Cebu, PH",
     tags: ["React", "REST", "Tailwind", "SASS"],
   },
 ];

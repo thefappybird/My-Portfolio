@@ -224,8 +224,11 @@ button {
   animation-name: marquee-left;
 }
 
-/* Prevent horizontal overflow in all locales */
+/* Prevent horizontal overflow in all locales.
+   Use `clip` (not `hidden`): `hidden` turns the body into a scroll container,
+   which breaks `position: sticky` on the project rail. `clip` contains the
+   overflow without establishing a scroll container, so sticky keeps working. */
 html,
 body {
-  overflow-x: hidden;
+  overflow-x: clip;
 }

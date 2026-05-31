@@ -210,7 +210,19 @@ export default function KineticProjectCard({ project, index }: ProjectCardProps)
             "w-full max-w-3xl lg:max-w-4xl p-0",
             "flex flex-col"
           )}
-          // Close button is rendered by DialogContent; position is rtl-aware via absolute end-4
+          // react-medium-image-zoom portals its zoomed overlay to <body>; without these guards
+          // Radix treats a click/escape on that overlay as "outside" and closes the whole modal.
+          onPointerDownOutside={(e) => {
+            const target = e.detail.originalEvent.target as HTMLElement | null;
+            if (target?.closest("[data-rmiz-modal]")) e.preventDefault();
+          }}
+          onInteractOutside={(e) => {
+            const target = e.detail.originalEvent.target as HTMLElement | null;
+            if (target?.closest("[data-rmiz-modal]")) e.preventDefault();
+          }}
+          onEscapeKeyDown={(e) => {
+            if (document.querySelector("[data-rmiz-modal]")) e.preventDefault();
+          }}
         >
           {/* Scrollable body — data-lenis-prevent releases Lenis so native wheel scroll works */}
           <div

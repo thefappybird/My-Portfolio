@@ -113,7 +113,7 @@
       "rezilens": {
         "title": "Front End Developer",
         "period": "Jan 2026 – Present",
-        "summary": "Owned the front-end of a GRC SaaS/PaaS platform for GCC enterprises — data-rich risk, compliance, and maturity dashboards translating ECC, CIS, and CMMI frameworks into intuitive workflows. Led Arabic localization (RTL + i18n), shipped WebSocket real-time data feeds, and implemented granular RBAC. Managed the full delivery loop: client requirements → scoped user stories → code review → CI/CD → Agile release."
+        "summary": "Owned the front-end of a GRC SaaS/PaaS platform for GCC enterprises — data-rich risk, compliance, and maturity dashboards translating ECC, CIS, and CMMI frameworks into intuitive workflows. Led Arabic localization (RTL + i18n), shipped real-time data over WebSocket and NATS.io, and implemented granular RBAC. Managed the full delivery loop: client requirements → scoped user stories → code review → CI/CD → Agile release."
       },
       "accenture": {
         "title": "Front End Developer",
