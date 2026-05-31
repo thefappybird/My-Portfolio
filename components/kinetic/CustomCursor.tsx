@@ -59,7 +59,11 @@ export default function CustomCursor() {
 
   if (isTouch) return null;
 
-  const isExpanded = label !== "";
+  const isWord = label !== "" && label !== "↗"; // VIEW / DRAG over project cards
+  const isArrow = label === "↗"; // generic links & buttons
+  // Keep it small: a see-through ring over links/buttons (so small targets stay
+  // visible), a compact filled circle with a label only over project cards.
+  const size = isWord ? 56 : isArrow ? 24 : 12;
 
   return (
     <motion.div
@@ -69,27 +73,27 @@ export default function CustomCursor() {
     >
       <motion.div
         animate={{
-          width: isExpanded ? 90 : 20,
-          height: isExpanded ? 90 : 20,
-          borderRadius: "9999px",
-          backgroundColor: isExpanded ? "var(--k-1)" : "transparent",
-          borderColor: isExpanded ? "var(--k-1)" : "var(--foreground)",
-          borderWidth: 2,
+          width: size,
+          height: size,
+          backgroundColor: isWord ? "var(--k-1)" : "transparent",
+          borderColor: isWord ? "var(--k-1)" : "var(--foreground)",
         }}
         transition={{ type: "spring", stiffness: 400, damping: 30 }}
-        className="flex items-center justify-center border-2 border-solid"
-        style={{ borderStyle: "solid" }}
+        className="flex items-center justify-center rounded-full border-2 border-solid"
       >
-        {isExpanded && (
+        {isWord && (
           <motion.span
             key={label}
             initial={{ opacity: 0, scale: 0.6 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="text-white text-[11px] font-bold tracking-widest uppercase"
+            className="text-white text-[8px] font-bold tracking-widest uppercase"
             style={{ fontFamily: "var(--font-geist-sans)" }}
           >
             {label}
           </motion.span>
+        )}
+        {isArrow && (
+          <span className="text-foreground text-[10px] font-bold leading-none">↗</span>
         )}
       </motion.div>
     </motion.div>

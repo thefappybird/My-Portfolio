@@ -1,14 +1,8 @@
 "use client";
 
 import { useRef } from "react";
-import {
-  motion,
-  useScroll,
-  useTransform,
-  useVelocity,
-  useSpring,
-} from "motion/react";
-import { useTranslations, useLocale } from "next-intl";
+import { motion } from "motion/react";
+import { useTranslations } from "next-intl";
 import KineticProjectCard, { type Project } from "./KineticProjectCard";
 import GallurioFeature from "./GallurioFeature";
 import RevealText from "./RevealText";
@@ -23,15 +17,9 @@ import {
   financeImages,
 } from "@/lib/exports";
 
-// Card width + gap in px — must match Tailwind card sizes below
-const CARD_W = 436;
-const RAIL_PADDING = 40;
-
 export default function KineticProjectsRail() {
   const t = useTranslations("projects");
   const tCommon = useTranslations("common");
-  const locale = useLocale();
-  const isRtl = locale === "ar";
 
   const PROJECTS: Project[] = [
     {
@@ -138,34 +126,8 @@ export default function KineticProjectsRail() {
     },
   ];
 
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const railRef = useRef<HTMLDivElement>(null);
-
-  const totalTravel = PROJECTS.length * CARD_W + RAIL_PADDING * 2;
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end end"],
-  });
-
-  // In RTL the horizontal rail should scroll from right-to-left, so negate the direction
-  const xStart = isRtl
-    ? -(totalTravel - (typeof window !== "undefined" ? window.innerWidth : 1440))
-    : RAIL_PADDING;
-  const xEnd = isRtl
-    ? RAIL_PADDING
-    : -(totalTravel - (typeof window !== "undefined" ? window.innerWidth : 1440));
-
-  const xRaw = useTransform(scrollYProgress, [0, 1], [xStart, xEnd]);
-  const x = useSpring(xRaw, { stiffness: 80, damping: 22 });
-
-  const scrollVelocity = useVelocity(scrollYProgress);
-  // Flip skew sign in RTL so kinetic feel matches reading direction
-  const skewX = useTransform(
-    scrollVelocity,
-    [-0.5, 0, 0.5],
-    isRtl ? [6, 0, -6] : [-6, 0, 6]
-  );
+  // Free horizontal drag strip — clamps the row within this container's bounds
+  const stripRef = useRef<HTMLDivElement>(null);
 
   return (
     <section id="projects" aria-labelledby="projects-heading">
@@ -210,30 +172,20 @@ export default function KineticProjectsRail() {
         ))}
       </div>
 
-      {/* Desktop: sticky horizontal scroll rail (md+) */}
-      <div
-        ref={sectionRef}
-        style={{ height: `${PROJECTS.length * 30}vh` }}
-        className="relative hidden md:block"
-      >
-        <div className="project-rail-sticky">
-          <motion.div
-            ref={railRef}
-            data-cursor="drag"
-            drag="x"
-            dragConstraints={{
-              left: isRtl ? RAIL_PADDING : -(totalTravel - (typeof window !== "undefined" ? window.innerWidth : 1440)),
-              right: isRtl ? (totalTravel - (typeof window !== "undefined" ? window.innerWidth : 1440)) : RAIL_PADDING,
-            }}
-            style={{ x, skewX }}
-            className="flex items-center gap-4 md:gap-6 h-full px-10"
-            aria-label="Project cards — scroll or drag horizontally"
-          >
-            {PROJECTS.map((project, i) => (
-              <KineticProjectCard key={project.title} project={project} index={i} />
-            ))}
-          </motion.div>
-        </div>
+      {/* Desktop: free horizontal drag strip (md+) — does not hijack vertical scroll */}
+      <div ref={stripRef} className="hidden md:block overflow-hidden pb-20 pt-2">
+        <motion.div
+          drag="x"
+          dragConstraints={stripRef}
+          dragElastic={0.04}
+          data-cursor="drag"
+          className="flex items-stretch gap-6 w-max px-10 cursor-grab active:cursor-grabbing"
+          aria-label="Project cards — drag horizontally to explore"
+        >
+          {PROJECTS.map((project, i) => (
+            <KineticProjectCard key={project.title} project={project} index={i} />
+          ))}
+        </motion.div>
       </div>
 
       {/* Screen reader / no-JS fallback */}

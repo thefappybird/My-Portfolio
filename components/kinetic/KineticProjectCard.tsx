@@ -4,8 +4,6 @@ import { useState, useRef } from "react";
 import Image from "next/image";
 import { motion, useMotionValue, useTransform } from "motion/react";
 import { useTranslations } from "next-intl";
-import { Controlled as Zoom } from "react-medium-image-zoom";
-import "react-medium-image-zoom/dist/styles.css";
 import {
   Dialog,
   DialogContent,
@@ -45,8 +43,8 @@ export default function KineticProjectCard({ project, index }: ProjectCardProps)
   const tModal = useTranslations("projects.modal");
 
   const [open, setOpen] = useState(false);
-  // Which gallery image is currently zoomed (react-medium-image-zoom controlled mode)
-  const [zoomedSrc, setZoomedSrc] = useState<string | null>(null);
+  // Enlarged gallery image shown in a nested lightbox above the detail modal
+  const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
 
   // Tilt motion values for the 3-D card effect
   const x = useMotionValue(0);
@@ -56,14 +54,6 @@ export default function KineticProjectCard({ project, index }: ProjectCardProps)
 
   // Pointer-down position used to distinguish a tap from a drag
   const pointerOrigin = useRef<{ x: number; y: number } | null>(null);
-
-  // Block the dialog from closing while an image is zoomed (or in the brief window just after
-  // un-zooming) — react-medium-image-zoom's overlay lives outside the dialog, so a click or
-  // Escape on it would otherwise dismiss the whole modal.
-  const zoomedRef = useRef(false);
-  const lastUnzoomRef = useRef(0);
-  const shouldBlockClose = () =>
-    zoomedRef.current || Date.now() - lastUnzoomRef.current < 300;
 
   function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -124,8 +114,9 @@ export default function KineticProjectCard({ project, index }: ProjectCardProps)
               src={mainImage}
               alt={`Screenshot of ${project.title}`}
               fill
-              className="object-cover"
+              className="object-cover pointer-events-none"
               sizes="(max-width: 768px) 300px, 420px"
+              draggable={false}
             />
           ) : (
             <div className="w-full h-full" style={{ backgroundColor: project.accentColor }} />
@@ -212,13 +203,7 @@ export default function KineticProjectCard({ project, index }: ProjectCardProps)
       </motion.article>
 
       {/* Project detail modal */}
-      <Dialog
-        open={open}
-        onOpenChange={(next) => {
-          if (!next && shouldBlockClose()) return;
-          setOpen(next);
-        }}
-      >
+      <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent
           className={cn(
             // Brutalist overrides — square, ink border, cream bg, no shadow
@@ -226,17 +211,6 @@ export default function KineticProjectCard({ project, index }: ProjectCardProps)
             "w-full max-w-3xl lg:max-w-4xl p-0",
             "flex flex-col"
           )}
-          // Backstop for the zoom overlay (see shouldBlockClose): swallow outside-click / Escape
-          // dismissals that fire while an image is zoomed or just after un-zooming.
-          onPointerDownOutside={(e) => {
-            if (shouldBlockClose()) e.preventDefault();
-          }}
-          onInteractOutside={(e) => {
-            if (shouldBlockClose()) e.preventDefault();
-          }}
-          onEscapeKeyDown={(e) => {
-            if (shouldBlockClose()) e.preventDefault();
-          }}
         >
           {/* Scrollable body — data-lenis-prevent releases Lenis so native wheel scroll works */}
           <div
@@ -285,7 +259,7 @@ export default function KineticProjectCard({ project, index }: ProjectCardProps)
               </DialogDescription>
             </div>
 
-            {/* Gallery */}
+            {/* Gallery — click an image to open the lightbox */}
             {project.images.length > 0 && (
               <div className="px-6 md:px-8 pt-4 pb-6">
                 <p className="text-xs tracking-[0.25em] uppercase font-bold text-muted-foreground mb-4">
@@ -293,29 +267,21 @@ export default function KineticProjectCard({ project, index }: ProjectCardProps)
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   {project.images.map((src, i) => (
-                    <Zoom
+                    <button
                       key={src}
-                      isZoomed={zoomedSrc === src}
-                      onZoomChange={(z) => {
-                        zoomedRef.current = z;
-                        if (z) {
-                          setZoomedSrc(src);
-                        } else {
-                          setZoomedSrc((cur) => (cur === src ? null : cur));
-                          lastUnzoomRef.current = Date.now();
-                        }
-                      }}
+                      type="button"
+                      onClick={() => setLightboxSrc(src)}
+                      aria-label={tModal("screenshotAlt", { n: i + 1, title: project.title })}
+                      className="group/img relative w-full aspect-video border-2 border-foreground overflow-hidden cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--k-1)]"
                     >
-                      <div className="relative w-full aspect-video border-2 border-foreground overflow-hidden">
-                        <Image
-                          src={src}
-                          alt={tModal("screenshotAlt", { n: i + 1, title: project.title })}
-                          fill
-                          className="object-cover"
-                          sizes="(max-width: 768px) 100vw, 50vw"
-                        />
-                      </div>
-                    </Zoom>
+                      <Image
+                        src={src}
+                        alt={tModal("screenshotAlt", { n: i + 1, title: project.title })}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover/img:scale-105"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
+                    </button>
                   ))}
                 </div>
               </div>
@@ -351,6 +317,33 @@ export default function KineticProjectCard({ project, index }: ProjectCardProps)
               </div>
             )}
           </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* Image lightbox — nested dialog stacked above the detail modal.
+          Radix dismisses the top layer first, so clicking the backdrop or pressing
+          Escape closes only the image, leaving the project modal open. */}
+      <Dialog
+        open={lightboxSrc !== null}
+        onOpenChange={(next) => {
+          if (!next) setLightboxSrc(null);
+        }}
+      >
+        <DialogContent
+          className={cn(
+            "rounded-none border-2 border-foreground bg-background shadow-none",
+            "w-auto max-w-[96vw] p-2"
+          )}
+        >
+          <DialogTitle className="sr-only">{project.title}</DialogTitle>
+          {lightboxSrc && (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={lightboxSrc}
+              alt={project.title}
+              className="block mx-auto h-auto w-auto max-h-[86vh] max-w-[92vw] object-contain"
+            />
+          )}
         </DialogContent>
       </Dialog>
     </>

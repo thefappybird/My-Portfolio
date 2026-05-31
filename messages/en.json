@@ -52,7 +52,7 @@
     "label": "02 — Selected Work",
     "headingLine1": "WHAT I'VE",
     "headingLine2": "SHIPPED.",
-    "instruction": "Scroll to navigate — drag to explore",
+    "instruction": "Drag to explore →",
     "mobileInstruction": "Swipe to explore",
     "modal": {
       "openLabel": "View project details",
