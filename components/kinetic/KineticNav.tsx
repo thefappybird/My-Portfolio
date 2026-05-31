@@ -2,21 +2,12 @@
 
 import { useState } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
-import { useTranslations, useLocale } from "next-intl";
-import { useRouter, usePathname } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import LanguageToggle from "./LanguageToggle";
 
 export default function KineticNav() {
   const t = useTranslations("nav");
-  const locale = useLocale();
-  const router = useRouter();
-  const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const { scrollY } = useScroll();
   const borderOpacity = useTransform(scrollY, [0, 80], [0, 1]);
@@ -27,10 +18,6 @@ export default function KineticNav() {
     { label: t("about"), href: "#about" },
     { label: t("contact"), href: "#contact" },
   ];
-
-  function switchLocale(next: string) {
-    router.replace(pathname, { locale: next });
-  }
 
   return (
     <header
@@ -73,37 +60,7 @@ export default function KineticNav() {
 
         {/* Desktop right cluster */}
         <div className="hidden md:flex items-center gap-3">
-          <DropdownMenu>
-            <DropdownMenuTrigger
-              className="px-3 py-2 border-2 border-foreground text-sm font-bold tracking-widest uppercase text-foreground hover:bg-foreground hover:text-background transition-colors focus:outline-none"
-              aria-label="Switch language"
-            >
-              {locale === "ar" ? t("ar") : t("en")}
-            </DropdownMenuTrigger>
-            <DropdownMenuContent
-              className="min-w-[8rem] border-2 border-foreground rounded-none bg-background p-0 shadow-none"
-              align="end"
-            >
-              <DropdownMenuItem
-                onClick={() => switchLocale("en")}
-                className={cn(
-                  "rounded-none px-4 py-3 text-sm font-bold tracking-widest uppercase cursor-pointer",
-                  locale === "en" && "text-[var(--k-1)]"
-                )}
-              >
-                {t("english")}
-              </DropdownMenuItem>
-              <DropdownMenuItem
-                onClick={() => switchLocale("ar")}
-                className={cn(
-                  "rounded-none px-4 py-3 text-sm font-bold tracking-widest uppercase cursor-pointer",
-                  locale === "ar" && "text-[var(--k-1)]"
-                )}
-              >
-                {t("arabic")}
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <LanguageToggle />
 
           <a
             href={`mailto:alex.banaag1@gmail.com`}
@@ -116,37 +73,7 @@ export default function KineticNav() {
 
         {/* Mobile cluster */}
         <div className="md:hidden flex items-center gap-3">
-          <DropdownMenu>
-            <DropdownMenuTrigger
-              className="px-2 py-1 border-2 border-foreground text-xs font-bold tracking-widest uppercase text-foreground hover:bg-foreground hover:text-background transition-colors focus:outline-none"
-              aria-label="Switch language"
-            >
-              {locale === "ar" ? t("ar") : t("en")}
-            </DropdownMenuTrigger>
-            <DropdownMenuContent
-              className="min-w-[7rem] border-2 border-foreground rounded-none bg-background p-0 shadow-none"
-              align="end"
-            >
-              <DropdownMenuItem
-                onClick={() => switchLocale("en")}
-                className={cn(
-                  "rounded-none px-3 py-2 text-xs font-bold tracking-widest uppercase cursor-pointer",
-                  locale === "en" && "text-[var(--k-1)]"
-                )}
-              >
-                {t("english")}
-              </DropdownMenuItem>
-              <DropdownMenuItem
-                onClick={() => switchLocale("ar")}
-                className={cn(
-                  "rounded-none px-3 py-2 text-xs font-bold tracking-widest uppercase cursor-pointer",
-                  locale === "ar" && "text-[var(--k-1)]"
-                )}
-              >
-                {t("arabic")}
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <LanguageToggle />
 
           <button
             onClick={() => setMobileOpen((v) => !v)}

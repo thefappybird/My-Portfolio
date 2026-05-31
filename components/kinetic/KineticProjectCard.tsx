@@ -4,7 +4,7 @@ import { useState, useRef } from "react";
 import Image from "next/image";
 import { motion, useMotionValue, useTransform } from "motion/react";
 import { useTranslations } from "next-intl";
-import Zoom from "react-medium-image-zoom";
+import { Controlled as Zoom } from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
 import {
   Dialog,
@@ -45,6 +45,8 @@ export default function KineticProjectCard({ project, index }: ProjectCardProps)
   const tModal = useTranslations("projects.modal");
 
   const [open, setOpen] = useState(false);
+  // Which gallery image is currently zoomed (react-medium-image-zoom controlled mode)
+  const [zoomedSrc, setZoomedSrc] = useState<string | null>(null);
 
   // Tilt motion values for the 3-D card effect
   const x = useMotionValue(0);
@@ -54,6 +56,14 @@ export default function KineticProjectCard({ project, index }: ProjectCardProps)
 
   // Pointer-down position used to distinguish a tap from a drag
   const pointerOrigin = useRef<{ x: number; y: number } | null>(null);
+
+  // Block the dialog from closing while an image is zoomed (or in the brief window just after
+  // un-zooming) — react-medium-image-zoom's overlay lives outside the dialog, so a click or
+  // Escape on it would otherwise dismiss the whole modal.
+  const zoomedRef = useRef(false);
+  const lastUnzoomRef = useRef(0);
+  const shouldBlockClose = () =>
+    zoomedRef.current || Date.now() - lastUnzoomRef.current < 300;
 
   function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -202,7 +212,13 @@ export default function KineticProjectCard({ project, index }: ProjectCardProps)
       </motion.article>
 
       {/* Project detail modal */}
-      <Dialog open={open} onOpenChange={setOpen}>
+      <Dialog
+        open={open}
+        onOpenChange={(next) => {
+          if (!next && shouldBlockClose()) return;
+          setOpen(next);
+        }}
+      >
         <DialogContent
           className={cn(
             // Brutalist overrides — square, ink border, cream bg, no shadow
@@ -210,18 +226,16 @@ export default function KineticProjectCard({ project, index }: ProjectCardProps)
             "w-full max-w-3xl lg:max-w-4xl p-0",
             "flex flex-col"
           )}
-          // react-medium-image-zoom portals its zoomed overlay to <body>; without these guards
-          // Radix treats a click/escape on that overlay as "outside" and closes the whole modal.
+          // Backstop for the zoom overlay (see shouldBlockClose): swallow outside-click / Escape
+          // dismissals that fire while an image is zoomed or just after un-zooming.
           onPointerDownOutside={(e) => {
-            const target = e.detail.originalEvent.target as HTMLElement | null;
-            if (target?.closest("[data-rmiz-modal]")) e.preventDefault();
+            if (shouldBlockClose()) e.preventDefault();
           }}
           onInteractOutside={(e) => {
-            const target = e.detail.originalEvent.target as HTMLElement | null;
-            if (target?.closest("[data-rmiz-modal]")) e.preventDefault();
+            if (shouldBlockClose()) e.preventDefault();
           }}
           onEscapeKeyDown={(e) => {
-            if (document.querySelector("[data-rmiz-modal]")) e.preventDefault();
+            if (shouldBlockClose()) e.preventDefault();
           }}
         >
           {/* Scrollable body — data-lenis-prevent releases Lenis so native wheel scroll works */}
@@ -279,7 +293,19 @@ export default function KineticProjectCard({ project, index }: ProjectCardProps)
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   {project.images.map((src, i) => (
-                    <Zoom key={src}>
+                    <Zoom
+                      key={src}
+                      isZoomed={zoomedSrc === src}
+                      onZoomChange={(z) => {
+                        zoomedRef.current = z;
+                        if (z) {
+                          setZoomedSrc(src);
+                        } else {
+                          setZoomedSrc((cur) => (cur === src ? null : cur));
+                          lastUnzoomRef.current = Date.now();
+                        }
+                      }}
+                    >
                       <div className="relative w-full aspect-video border-2 border-foreground overflow-hidden">
                         <Image
                           src={src}
